@@ -17,14 +17,14 @@ class_name Player
 @export var freefly_speed := 25.0
 
 @onready var collider: CollisionShape3D = $Collider
-@onready var head: Node3D = $Visuals/Head
-@onready var sword: CandyCaneSword = $Visuals/RightHand/CandyCaneSword
+@onready var sword: CandyCaneSword = $RightHand/CandyCaneSword
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var camera_root_offset: Node3D = $CameraRootOffset
 @onready var camera_pivot: Node3D = $CameraRootOffset/CameraPivot
 @onready var camera_boom: SpringArm3D = $CameraRootOffset/CameraPivot/CameraBoom
 @onready var camera_leaf_offset: Node3D = $CameraRootOffset/CameraPivot/CameraBoom/CameraLeafOffset
+@onready var camera: Camera3D = $CameraRootOffset/CameraPivot/CameraBoom/CameraLeafOffset/Camera
 
 var _move_speed := 0.0
 var _look_rotation: Vector2
@@ -103,7 +103,7 @@ func _physics_process(delta: float):
 
 func _do_freefly_move(delta: float): 
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
-	var motion_dir := (head.global_basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var motion_dir := (camera.global_basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	var motion := motion_dir * freefly_speed * delta
 	move_and_collide(motion)
 

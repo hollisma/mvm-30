@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://njraxn2ljfto"]
+[gd_scene load_steps=10 format=3 uid="uid://njraxn2ljfto"]
 
 [ext_resource type="Script" uid="uid://brcqkn2i6iwc3" path="res://scenes/characters/player.gd" id="1_rp718"]
+[ext_resource type="PackedScene" uid="uid://dth1id2rekshn" path="res://scenes/interfaces/damageable.tscn" id="2_76oj4"]
 [ext_resource type="PackedScene" uid="uid://8tbebxmq5d6p" path="res://scenes/objects/candy_cane_sword.tscn" id="2_yewv4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
@@ -20,7 +21,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/RightHand:rotation")
+tracks/0/path = NodePath("RightHand:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -32,7 +33,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals/RightHand:position")
+tracks/1/path = NodePath("RightHand:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -47,7 +48,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/RightHand:rotation")
+tracks/0/path = NodePath("RightHand:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -59,7 +60,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals/RightHand:position")
+tracks/1/path = NodePath("RightHand:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -79,6 +80,8 @@ _data = {
 collision_layer = 2
 script = ExtResource("1_rp718")
 
+[node name="Damageable" parent="." unique_id=710555215 instance=ExtResource("2_76oj4")]
+
 [node name="Collider" type="CollisionShape3D" parent="." unique_id=1324870049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_iof21")
@@ -91,14 +94,11 @@ material_override = SubResource("StandardMaterial3D_iof21")
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_ucva2")
 
-[node name="Head" type="Node3D" parent="Visuals" unique_id=372346071]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
-
-[node name="RightHand" type="Node3D" parent="Visuals" unique_id=717463165]
+[node name="RightHand" type="Node3D" parent="." unique_id=717463165]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49999997, 1.4000001, -0.4)
 
-[node name="CandyCaneSword" parent="Visuals/RightHand" unique_id=358481938 instance=ExtResource("2_yewv4")]
-transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 0, 0)
+[node name="CandyCaneSword" parent="RightHand" unique_id=358481938 instance=ExtResource("2_yewv4")]
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.4226183, 0, -0.4226183, 0.90630776, 0, 0, 0)
 
 [node name="CameraRootOffset" type="Node3D" parent="." unique_id=1679834426]
 

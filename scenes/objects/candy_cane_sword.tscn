@@ -8,12 +8,14 @@ size = Vector3(0.2, 1.6, 0.4)
 [node name="CandyCaneSword" type="Node3D" unique_id=358481938]
 script = ExtResource("1_bvdko")
 
-[node name="Mesh" type="CSGBox3D" parent="." unique_id=2104370970]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2351742e-08, 1.4901161e-07, 1.4901161e-08)
-size = Vector3(0.2, 1.6, 0.4)
-
 [node name="CollisionArea" type="Area3D" parent="." unique_id=1427454386]
 
 [node name="Collider" type="CollisionShape3D" parent="CollisionArea" unique_id=1077742644]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2154064e-08, -8.046627e-07, 1.4901161e-08)
 shape = SubResource("BoxShape3D_u03ek")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2067556422]
+
+[node name="Mesh" type="CSGBox3D" parent="Visuals" unique_id=2104370970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2351742e-08, 1.4901161e-07, 1.4901161e-08)
+size = Vector3(0.2, 1.6, 0.4)
