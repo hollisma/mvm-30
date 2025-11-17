@@ -18,6 +18,9 @@ class_name Player
 
 @onready var collider: CollisionShape3D = $Collider
 @onready var head: Node3D = $Visuals/Head
+@onready var sword: CandyCaneSword = $Visuals/RightHand/CandyCaneSword
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 @onready var camera_root_offset: Node3D = $CameraRootOffset
 @onready var camera_pivot: Node3D = $CameraRootOffset/CameraPivot
 @onready var camera_boom: SpringArm3D = $CameraRootOffset/CameraPivot/CameraBoom
@@ -27,6 +30,7 @@ var _move_speed := 0.0
 var _look_rotation: Vector2
 var _mouse_captured := false
 var _freeflying := false
+var _swinging := false
 
 func _ready():
 	_look_rotation.y = rotation.y
@@ -41,8 +45,9 @@ func _setup_camera():
 
 func _unhandled_input(event: InputEvent):
 	# Mouse capturing
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if not _mouse_captured and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		capture_mouse()
+		return
 	if Input.is_key_pressed(KEY_ESCAPE):
 		release_mouse()
 	
@@ -56,6 +61,10 @@ func _unhandled_input(event: InputEvent):
 			enable_freefly()
 		else:
 			disable_freefly()
+	
+	# Attack
+	if Input.is_action_just_pressed("attack"): 
+		_swing()
 
 ################
 ### MOVEMENT ###
@@ -100,6 +109,24 @@ func _do_freefly_move(delta: float):
 
 func _get_gravity() -> Vector3: 
 	return Vector3(0, -gravity, 0)
+
+##############
+### ATTACK ###
+##############
+
+func _swing(): 
+	if _swinging: return
+	_swinging = true
+	sword.start_swing()
+	animation_player.play("swing")
+	await animation_player.animation_finished
+	
+	await get_tree().create_timer(0.3).timeout
+	
+	sword.finish_swing()
+	animation_player.play_backwards("swing")
+	await animation_player.animation_finished
+	_swinging = false
 
 #############
 ### MOUSE ###
