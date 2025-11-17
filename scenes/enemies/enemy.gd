@@ -18,9 +18,6 @@ func take_damage(amount: float):
 	health_bar.set_health(damageable.health)
 
 func _do_death(): 
-	print(PlayerState.money)
 	PlayerState.add_exp(exp_amount)
 	PlayerState.add_money(money_amount)
-	print(PlayerState.money)
-	print(money_amount)
 	queue_free()
