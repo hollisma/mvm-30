@@ -6,14 +6,15 @@ class_name CandyCaneSword
 var _attack_power := 10
 
 func _ready():
-	collision_area.area_entered.connect(_on_area_entered)
+	collision_area.body_entered.connect(_on_body_entered)
+	collision_area.monitoring = false
 
-func _on_area_entered(body): 
-	if body.is_in_group("enemy"): 
+func _on_body_entered(body): 
+	if body.has_method("take_damage"): 
 		body.take_damage(_attack_power)
 
 func start_swing(): 
-	collision_area.disable_mode = CollisionObject3D.DISABLE_MODE_KEEP_ACTIVE
+	collision_area.monitoring = true
 
 func finish_swing(): 
-	collision_area.disable_mode = CollisionObject3D.DISABLE_MODE_REMOVE
+	collision_area.monitoring = false

@@ -8,7 +8,7 @@ radius = 0.4
 height = 1.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
-albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
+albedo_color = Color(0.37545058, 0.7138253, 0.87008846, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
 radius = 0.4
