@@ -1,6 +1,11 @@
 extends CharacterBody3D
 class_name Player
 
+@export_group("Physics")
+@export var jump_force := 10.0
+@export var gravity := 25.0
+@export var acceleration := 50.0
+@export var friction := 35.0
 @export_group("Camera")
 @export var camera_follow_angle := 15.0
 @export var camera_distance := 4.0
@@ -8,7 +13,6 @@ class_name Player
 @export_group("Speeds")
 @export var look_speed := 0.002
 @export var base_speed := 7.0
-@export var jump_velocity := 5.0
 @export var sprint_speed := 10.0
 @export var freefly_speed := 25.0
 
@@ -64,11 +68,11 @@ func _physics_process(delta: float):
 	
 	# Apply gravity
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += _get_gravity() * delta
 
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
+		velocity.y += jump_force
 
 	# Sprint
 	if Input.is_action_pressed("sprint"):
@@ -80,11 +84,11 @@ func _physics_process(delta: float):
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 	var move_dir := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if move_dir:
-		velocity.x = move_dir.x * _move_speed
-		velocity.z = move_dir.z * _move_speed
+		velocity.x = move_toward(velocity.x, move_dir.x * _move_speed, delta * acceleration)
+		velocity.z = move_toward(velocity.z, move_dir.z * _move_speed, delta * acceleration)
 	else:
-		velocity.x = move_toward(velocity.x, 0, _move_speed)
-		velocity.z = move_toward(velocity.z, 0, _move_speed)
+		velocity.x = move_toward(velocity.x, 0, delta * friction)
+		velocity.z = move_toward(velocity.z, 0, delta * friction)
 	
 	move_and_slide()
 
@@ -93,6 +97,9 @@ func _do_freefly_move(delta: float):
 	var motion_dir := (head.global_basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	var motion := motion_dir * freefly_speed * delta
 	move_and_collide(motion)
+
+func _get_gravity() -> Vector3: 
+	return Vector3(0, -gravity, 0)
 
 #############
 ### MOUSE ###
