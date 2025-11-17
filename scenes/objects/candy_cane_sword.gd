@@ -3,7 +3,7 @@ class_name CandyCaneSword
 
 @onready var collision_area: Area3D = $CollisionArea
 
-var _attack_power := 10
+var _attack_power := 2
 
 func _ready():
 	collision_area.body_entered.connect(_on_body_entered)
