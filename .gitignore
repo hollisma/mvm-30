@@ -1,0 +1,14 @@
+# Godot 4+ specific ignores
+.godot/
+.import/
+*.import
+
+# Build / export
+exports/
+export.cfg
+export_presets.cfg
+
+# Godot crash logs / backups
+*.tmp
+*.log
+*.translation
