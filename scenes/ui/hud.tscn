@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cohxnw8spigs6"]
+
+[ext_resource type="Script" uid="uid://bns42q85b4l7e" path="res://scenes/ui/hud.gd" id="1_0mwgc"]
+
+[node name="HUD" type="CanvasLayer" unique_id=113979026]
+script = ExtResource("1_0mwgc")
+
+[node name="ExpLabel" type="Label" parent="." unique_id=1903072184]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 39.0
+text = "EXP: "
+
+[node name="MoneyLabel" type="Label" parent="." unique_id=1632796450]
+offset_left = 16.0
+offset_top = 48.0
+offset_right = 78.0
+offset_bottom = 71.0
+text = "Money: "

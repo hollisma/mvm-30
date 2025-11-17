@@ -5,6 +5,8 @@ class_name Enemy
 @onready var health_bar = $HealthBar
 
 @export var health := 5.0
+@export var exp_amount := 2
+@export var money_amount := 1
 
 func _ready():
 	damageable.init(health, "Enemy")
@@ -16,5 +18,9 @@ func take_damage(amount: float):
 	health_bar.set_health(damageable.health)
 
 func _do_death(): 
+	print(PlayerState.money)
+	PlayerState.add_exp(exp_amount)
+	PlayerState.add_money(money_amount)
+	print(PlayerState.money)
+	print(money_amount)
 	queue_free()
-	# Do experience / money
