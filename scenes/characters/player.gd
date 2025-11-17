@@ -1,5 +1,6 @@
 extends CharacterBody3D
 class_name Player
+const TAG = "Player"
 
 @export_group("Physics")
 @export var jump_force := 10.0
@@ -153,10 +154,12 @@ func rotate_gaze(rot_input: Vector2):
 #############
 
 func enable_freefly():
+	Logr.info(TAG, "Freefly enabled")
 	collider.disabled = true
 	_freeflying = true
 	velocity = Vector3.ZERO
 
 func disable_freefly():
+	Logr.info(TAG, "Freefly disabled")
 	collider.disabled = false
 	_freeflying = false

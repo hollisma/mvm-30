@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://06tul1dr0kp3"]
+[gd_scene load_steps=9 format=3 uid="uid://06tul1dr0kp3"]
 
 [ext_resource type="PackedScene" uid="uid://d0f5q3kkeg7s7" path="res://scenes/levels/level.tscn" id="1_6awnf"]
+[ext_resource type="Script" uid="uid://8ddbwxemodfk" path="res://scenes/system/main.gd" id="1_628vv"]
 [ext_resource type="PackedScene" uid="uid://njraxn2ljfto" path="res://scenes/characters/player.tscn" id="2_ii55j"]
 [ext_resource type="PackedScene" uid="uid://drbmj5iomp844" path="res://scenes/enemies/enemy.tscn" id="3_ii55j"]
 [ext_resource type="PackedScene" uid="uid://cohxnw8spigs6" path="res://scenes/ui/hud.tscn" id="4_5m258"]
@@ -19,6 +20,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Main" type="Node3D" unique_id=2059223092]
+script = ExtResource("1_628vv")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1197654416]
 environment = SubResource("Environment_5m258")

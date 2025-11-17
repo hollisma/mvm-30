@@ -14,8 +14,8 @@ func init(_max_health: float, _name: String):
 	entity_name = _name
 
 func take_damage(amount: float): 
-	health -= amount
-	print("[DEBUG] %s taking %.1f damage; At %.1f health" % [entity_name, amount, health])
+	health = max(health - amount, 0)
+	Logr.info(entity_name, "Taking %.1f damage; At %.1f health" % [amount, health])
 	if health <= 0: 
-		print("[DEBUG] %s died" % entity_name)
+		Logr.info(entity_name, "%s died" % entity_name)
 		died.emit()

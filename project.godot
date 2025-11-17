@@ -19,6 +19,7 @@ config/icon="res://art/icon.svg"
 
 PlayerState="*res://scripts/player_state.gd"
 Events="*res://scripts/events.gd"
+Logr="*res://scripts/logr.gd"
 
 [input]
 
