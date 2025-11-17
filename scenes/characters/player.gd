@@ -2,11 +2,11 @@ extends CharacterBody3D
 class_name Player
 
 @export_group("Speeds")
-@export var look_speed : float = 0.002
-@export var base_speed : float = 7.0
-@export var jump_velocity : float = 4.5
-@export var sprint_speed : float = 10.0
-@export var freefly_speed : float = 25.0
+@export var look_speed: float = 0.002
+@export var base_speed: float = 7.0
+@export var jump_velocity: float = 5.0
+@export var sprint_speed: float = 10.0
+@export var freefly_speed: float = 25.0
 
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
@@ -91,7 +91,7 @@ func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	_mouse_captured = false
 
-func rotate_gaze(rot_input : Vector2):
+func rotate_gaze(rot_input: Vector2):
 	_look_rotation.x -= rot_input.y * look_speed
 	_look_rotation.x = clamp(_look_rotation.x, deg_to_rad(-85), deg_to_rad(85))
 	_look_rotation.y -= rot_input.x * look_speed
