@@ -1,15 +1,23 @@
 extends CharacterBody3D
 class_name Player
 
+@export_group("Camera")
+@export var camera_follow_angle := 15.0
+@export var camera_distance := 4.0
+@export var camera_height_offset := 0.5
 @export_group("Speeds")
-@export var look_speed: float = 0.002
-@export var base_speed: float = 7.0
-@export var jump_velocity: float = 5.0
-@export var sprint_speed: float = 10.0
-@export var freefly_speed: float = 25.0
+@export var look_speed := 0.002
+@export var base_speed := 7.0
+@export var jump_velocity := 5.0
+@export var sprint_speed := 10.0
+@export var freefly_speed := 25.0
 
-@onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+@onready var head: Node3D = $Visuals/Head
+@onready var camera_root_offset: Node3D = $CameraRootOffset
+@onready var camera_pivot: Node3D = $CameraRootOffset/CameraPivot
+@onready var camera_boom: SpringArm3D = $CameraRootOffset/CameraPivot/CameraBoom
+@onready var camera_leaf_offset: Node3D = $CameraRootOffset/CameraPivot/CameraBoom/CameraLeafOffset
 
 var _move_speed := 0.0
 var _look_rotation: Vector2
@@ -18,7 +26,14 @@ var _freeflying := false
 
 func _ready():
 	_look_rotation.y = rotation.y
-	_look_rotation.x = head.rotation.x
+	_look_rotation.x = camera_pivot.rotation.x
+	_setup_camera()
+
+func _setup_camera(): 
+	camera_root_offset.position.y = camera_height_offset
+	camera_root_offset.rotation_degrees.x = -camera_follow_angle
+	camera_boom.spring_length = camera_distance
+	camera_leaf_offset.rotation_degrees.x = camera_follow_angle
 
 func _unhandled_input(event: InputEvent):
 	# Mouse capturing
@@ -93,12 +108,11 @@ func release_mouse():
 
 func rotate_gaze(rot_input: Vector2):
 	_look_rotation.x -= rot_input.y * look_speed
-	_look_rotation.x = clamp(_look_rotation.x, deg_to_rad(-85), deg_to_rad(85))
-	_look_rotation.y -= rot_input.x * look_speed
-	transform.basis = Basis()
+	_look_rotation.x = clamp(_look_rotation.x, deg_to_rad(-85), deg_to_rad(50))
+	_look_rotation.y = -rot_input.x * look_speed
+	
 	rotate_y(_look_rotation.y) # Rotate entire player left / right
-	head.transform.basis = Basis() # Reset basis (rot + scale)
-	head.rotate_x(_look_rotation.x) # Rotate only head up / down
+	camera_pivot.rotation.x = _look_rotation.x
 
 #############
 ### OTHER ###

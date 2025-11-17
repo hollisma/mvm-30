@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://brcqkn2i6iwc3" path="res://scenes/characters/player.gd" id="1_rp718"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
+radius = 0.4
+height = 1.8
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
 
@@ -9,24 +13,33 @@ albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
 radius = 0.4
 height = 1.8
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
-radius = 0.4
-height = 1.8
-
 [node name="Player" type="CharacterBody3D" unique_id=1146666603]
+collision_layer = 2
 script = ExtResource("1_rp718")
-
-[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1825493147]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-material_override = SubResource("StandardMaterial3D_iof21")
-cast_shadow = 0
-mesh = SubResource("CapsuleMesh_ucva2")
 
 [node name="Collider" type="CollisionShape3D" parent="." unique_id=1324870049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_iof21")
 
-[node name="Head" type="Node3D" parent="." unique_id=372346071]
+[node name="Visuals" type="Node3D" parent="." unique_id=1504363605]
+
+[node name="Mesh" type="MeshInstance3D" parent="Visuals" unique_id=1825493147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+material_override = SubResource("StandardMaterial3D_iof21")
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_ucva2")
+
+[node name="Head" type="Node3D" parent="Visuals" unique_id=372346071]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
-[node name="Camera" type="Camera3D" parent="Head" unique_id=1815869737]
+[node name="CameraRootOffset" type="Node3D" parent="." unique_id=1679834426]
+
+[node name="CameraPivot" type="Node3D" parent="CameraRootOffset" unique_id=1186049634]
+
+[node name="CameraBoom" type="SpringArm3D" parent="CameraRootOffset/CameraPivot" unique_id=1732907940]
+spring_length = 4.0
+
+[node name="CameraLeafOffset" type="Node3D" parent="CameraRootOffset/CameraPivot/CameraBoom" unique_id=806876869]
+
+[node name="Camera" type="Camera3D" parent="CameraRootOffset/CameraPivot/CameraBoom/CameraLeafOffset" unique_id=1815869737]
+transform = Transform3D(1, 0, 0, 0, 0.9848078, 0.1736482, 0, -0.1736482, 0.9848078, 0, 1.7000003, -2.3841858e-07)
