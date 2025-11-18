@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://06tul1dr0kp3"]
+[gd_scene load_steps=11 format=3 uid="uid://06tul1dr0kp3"]
 
 [ext_resource type="PackedScene" uid="uid://d0f5q3kkeg7s7" path="res://scenes/levels/level.tscn" id="1_6awnf"]
 [ext_resource type="Script" uid="uid://8ddbwxemodfk" path="res://scenes/system/main.gd" id="1_628vv"]
 [ext_resource type="PackedScene" uid="uid://njraxn2ljfto" path="res://scenes/characters/player.tscn" id="2_ii55j"]
 [ext_resource type="PackedScene" uid="uid://drbmj5iomp844" path="res://scenes/enemies/stationary_enemy.tscn" id="3_ii55j"]
 [ext_resource type="PackedScene" uid="uid://cohxnw8spigs6" path="res://scenes/ui/hud.tscn" id="4_5m258"]
-[ext_resource type="PackedScene" uid="uid://gdhn8dilltih" path="res://scenes/enemies/simple_chase_enemy.tscn" id="6_xoti3"]
+[ext_resource type="PackedScene" uid="uid://cxlcqev27lq4d" path="res://scenes/enemies/chase_enemy.tscn" id="7_uaibl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6awnf"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,6 +20,10 @@ sky = SubResource("Sky_ii55j")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_uaibl"]
+vertices = PackedVector3Array(-62.8, 1, -12.600002, -45.3, 1, -12.600002, -45.05, 1, -14.850002, -62.8, 1, -62.850002, -12.549999, 1, -15.100002, -12.299999, 1, -62.850002, -10.799999, 1, -14.850002, 62.7, 1, -12.850002, 62.7, 1, -62.850002, -10.799999, 1, -12.850002, -27.55, 14, 6.6499977, -28.05, 14, -3.8500023, -28.3, 14, 6.6499977, -44.05, 14.25, -13.350002, -44.3, 14.25, -13.850002, -44.3, 14.25, 6.8999977, -43.8, 14.25, 6.6499977, -12.299999, 14, -13.600002, -11.799999, 14, -14.100002, -11.799999, 14, 6.8999977, -12.049999, 14, 6.3999977, -10.799999, 1, 5.6499977, 62.7, 1, 5.6499977, -62.8, 1, 5.6499977, -45.3, 1, 5.6499977, -40.05, 1, 6.8999977, -34.55, 1, 6.8999977, -34.3, 1, 5.6499977, -40.3, 1, 5.6499977, -29.05, 1, -4.3500023, -29.05, 1, 5.6499977, -29.3, 1, -12.600002, -43.05, 1, -12.600002, -43.05, 1, 5.6499977, -23.8, 1, -5.6000023, -22.05, 1, -5.8500023, -22.3, 1, -12.600002, -28.8, 1, -4.8500023, -26.8, 1, -4.6000023, -26.8, 1, 5.6499977, -23.8, 1, 5.6499977, -13.049999, 1, -5.8500023, -13.049999, 1, -12.600002, -20.8, 2, -2.8500023, -13.049999, 2, -2.8500023, -13.049999, 2, -4.8500023, -22.8, 2, -4.8500023, -22.8, 2, 5.6499977, -21.05, 2, 5.6499977, -18.05, 3, -0.10000229, -13.049999, 3, -0.10000229, -13.049999, 3, -1.8500023, -20.05, 3, -1.8500023, -20.05, 3, 5.6499977, -18.3, 3, 5.6499977, -34.3, 1, 7.8999977, -40.3, 1, 7.8999977, -11.299999, 1, 62.899998, -11.299999, 1, 7.8999977, -45.05, 1, 7.8999977, -62.8, 1, 62.899998, -10.799999, 1, 7.6499977, 62.7, 1, 62.899998)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(4, 2, 5), PackedInt32Array(5, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(6, 5, 8), PackedInt32Array(6, 8, 7), PackedInt32Array(7, 9, 6), PackedInt32Array(12, 11, 10), PackedInt32Array(16, 15, 13), PackedInt32Array(13, 15, 14), PackedInt32Array(13, 14, 17), PackedInt32Array(17, 14, 18), PackedInt32Array(15, 16, 12), PackedInt32Array(10, 19, 12), PackedInt32Array(12, 19, 15), PackedInt32Array(20, 17, 19), PackedInt32Array(19, 17, 18), PackedInt32Array(19, 10, 20), PackedInt32Array(9, 7, 21), PackedInt32Array(21, 7, 22), PackedInt32Array(0, 1, 23), PackedInt32Array(23, 1, 24), PackedInt32Array(27, 26, 25), PackedInt32Array(25, 28, 27), PackedInt32Array(27, 28, 29), PackedInt32Array(29, 30, 27), PackedInt32Array(28, 33, 29), PackedInt32Array(29, 33, 31), PackedInt32Array(31, 33, 32), PackedInt32Array(36, 35, 34), PackedInt32Array(37, 29, 31), PackedInt32Array(38, 37, 34), PackedInt32Array(34, 37, 31), PackedInt32Array(34, 31, 36), PackedInt32Array(39, 38, 40), PackedInt32Array(40, 38, 34), PackedInt32Array(41, 35, 42), PackedInt32Array(42, 35, 36), PackedInt32Array(44, 43, 45), PackedInt32Array(45, 43, 46), PackedInt32Array(48, 47, 43), PackedInt32Array(43, 47, 46), PackedInt32Array(50, 49, 51), PackedInt32Array(51, 49, 52), PackedInt32Array(54, 53, 49), PackedInt32Array(49, 53, 52), PackedInt32Array(26, 55, 25), PackedInt32Array(25, 55, 56), PackedInt32Array(55, 58, 57), PackedInt32Array(24, 59, 23), PackedInt32Array(23, 59, 60), PackedInt32Array(56, 55, 60), PackedInt32Array(60, 55, 57), PackedInt32Array(60, 59, 56), PackedInt32Array(58, 61, 57), PackedInt32Array(57, 61, 62), PackedInt32Array(62, 61, 22), PackedInt32Array(61, 21, 22)]
+
 [node name="Main" type="Node3D" unique_id=2059223092]
 script = ExtResource("1_628vv")
 
@@ -31,7 +35,10 @@ transform = Transform3D(-0.8660254, -0.50000006, -2.1855696e-08, 0, -4.371139e-0
 light_color = Color(0.6468, 0.84, 0.8238999, 1)
 shadow_enabled = true
 
-[node name="Level" parent="." unique_id=86106520 instance=ExtResource("1_6awnf")]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=2031761984]
+navigation_mesh = SubResource("NavigationMesh_uaibl")
+
+[node name="Level" parent="NavigationRegion3D" unique_id=86106520 instance=ExtResource("1_6awnf")]
 
 [node name="Player" parent="." unique_id=1146666603 instance=ExtResource("2_ii55j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.100002, 1, 17.1)
@@ -47,5 +54,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5, 1.5000004, -8)
 [node name="StationaryEnemy3" parent="." unique_id=1224290363 instance=ExtResource("3_ii55j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 1.5000004, -10.2)
 
-[node name="SimpleChaseEnemy" parent="." unique_id=974088394 instance=ExtResource("6_xoti3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.8, 1.5000001, 3.9)
+[node name="ChaseEnemy" parent="." unique_id=1403435692 instance=ExtResource("7_uaibl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2, 1.5, 5.5000005)
+entity_name = null
+max_health = null
+exp_amount = null
+money_amount = null

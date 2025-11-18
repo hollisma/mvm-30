@@ -4,6 +4,7 @@ class_name BaseEnemy
 @onready var health := $Health
 @onready var health_bar := $HealthBar
 @onready var ai_component: AIComponent = $AIComponent
+@onready var nav_agent: NavigationAgent3D
 
 @export var entity_name := "BaseEnemy"
 @export var max_health := 1.0

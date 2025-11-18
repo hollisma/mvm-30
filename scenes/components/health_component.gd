@@ -5,7 +5,7 @@ class_name HealthComponent
 signal damaged
 signal died
 
-@export var max_health: float
+var max_health: float
 var current_health: float
 var entity_name: String
 

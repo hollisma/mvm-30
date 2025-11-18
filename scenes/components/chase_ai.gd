@@ -1,8 +1,8 @@
 extends AIComponent
-class_name SimpleChaseAI
+class_name ChaseAI
 
 @export var move_speed := 4.0
-@export var stop_distance := 1.5
+@export var stop_distance := 1.7
 var chase_target: Node3D
 var _init := false
 
@@ -18,10 +18,16 @@ func get_steering(_delta: float) -> Vector3:
 		Logr.warning("No chase target", get_script().get_global_name())
 		return Vector3.ZERO
 	
-	var to_target = chase_target.global_transform.origin - owner_enemy.global_transform.origin
-	var dist = to_target.length()
+	var nav_agent := owner_enemy.nav_agent
+	nav_agent.target_position = chase_target.global_position
+	nav_agent.max_speed = move_speed
 	
+	var offset := nav_agent.get_next_path_position() - owner_enemy.global_position
+	var dir = offset.normalized()
+	
+	var to_target = chase_target.global_position - owner_enemy.global_position
+	var dist = to_target.length()
 	if dist > stop_distance: 
-		return to_target.normalized() * move_speed
+		return dir * move_speed
 	else: 
 		return lerp(owner_enemy.velocity, Vector3.ZERO, 0.2)
