@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://drbmj5iomp844"]
+
+[ext_resource type="Script" uid="uid://dpeobbewa5hyq" path="res://scenes/enemies/dummy_enemy.gd" id="1_6xk8f"]
+[ext_resource type="PackedScene" uid="uid://dth1id2rekshn" path="res://scenes/interfaces/health_component.tscn" id="2_8e3ao"]
+[ext_resource type="PackedScene" uid="uid://beax78p4udixi" path="res://scenes/enemies/health_bar.tscn" id="3_38ino"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e3ao"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6xk8f"]
+albedo_color = Color(0.88, 0.41360003, 0.41360003, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6xk8f"]
+
+[node name="DummyEnemy" type="CharacterBody3D" unique_id=286009393]
+script = ExtResource("1_6xk8f")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1071146617]
+shape = SubResource("CapsuleShape3D_8e3ao")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=376280523]
+
+[node name="Mesh" type="MeshInstance3D" parent="Visuals" unique_id=569980125]
+material_override = SubResource("StandardMaterial3D_6xk8f")
+mesh = SubResource("CapsuleMesh_6xk8f")
+
+[node name="Health" parent="." unique_id=710555215 instance=ExtResource("2_8e3ao")]
+
+[node name="HealthBar" parent="." unique_id=1092299156 instance=ExtResource("3_38ino")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3000001, 0)
