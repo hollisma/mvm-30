@@ -10,8 +10,8 @@ func _ready():
 	collision_area.monitoring = false
 
 func _on_body_entered(body): 
-	if body.has_method("take_damage"): 
-		body.take_damage(_attack_power)
+	if body.has_method("apply_damage"): 
+		body.apply_damage(_attack_power)
 
 func start_swing(): 
 	collision_area.monitoring = true

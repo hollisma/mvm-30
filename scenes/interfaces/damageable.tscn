@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dth1id2rekshn"]
-
-[ext_resource type="Script" uid="uid://dvvemhialaj3s" path="res://scenes/interfaces/damageable.gd" id="1_hahci"]
-
-[node name="Damageable" type="Node" unique_id=710555215]
-script = ExtResource("1_hahci")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://njraxn2ljfto"]
 
 [ext_resource type="Script" uid="uid://brcqkn2i6iwc3" path="res://scenes/characters/player.gd" id="1_rp718"]
-[ext_resource type="PackedScene" uid="uid://dth1id2rekshn" path="res://scenes/interfaces/damageable.tscn" id="2_76oj4"]
+[ext_resource type="PackedScene" uid="uid://dth1id2rekshn" path="res://scenes/interfaces/health_component.tscn" id="2_76oj4"]
 [ext_resource type="PackedScene" uid="uid://8tbebxmq5d6p" path="res://scenes/objects/candy_cane_sword.tscn" id="2_yewv4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]

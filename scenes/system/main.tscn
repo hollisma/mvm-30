@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://06tul1dr0kp3"]
+[gd_scene load_steps=10 format=3 uid="uid://06tul1dr0kp3"]
 
 [ext_resource type="PackedScene" uid="uid://d0f5q3kkeg7s7" path="res://scenes/levels/level.tscn" id="1_6awnf"]
 [ext_resource type="Script" uid="uid://8ddbwxemodfk" path="res://scenes/system/main.gd" id="1_628vv"]
 [ext_resource type="PackedScene" uid="uid://njraxn2ljfto" path="res://scenes/characters/player.tscn" id="2_ii55j"]
-[ext_resource type="PackedScene" uid="uid://drbmj5iomp844" path="res://scenes/enemies/enemy.tscn" id="3_ii55j"]
+[ext_resource type="PackedScene" uid="uid://drbmj5iomp844" path="res://scenes/enemies/dummy_enemy.tscn" id="3_ii55j"]
 [ext_resource type="PackedScene" uid="uid://cohxnw8spigs6" path="res://scenes/ui/hud.tscn" id="4_5m258"]
+[ext_resource type="PackedScene" uid="uid://gdhn8dilltih" path="res://scenes/enemies/simple_chase_enemy.tscn" id="6_xoti3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6awnf"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -35,22 +36,17 @@ shadow_enabled = true
 [node name="Player" parent="." unique_id=1146666603 instance=ExtResource("2_ii55j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.100002, 1, 17.1)
 
-[node name="Enemy" parent="." unique_id=1237845330 instance=ExtResource("3_ii55j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5, 1.5000004, -10.2)
-
 [node name="HUD" parent="." unique_id=113979026 instance=ExtResource("4_5m258")]
 
-[node name="Enemy2" parent="." unique_id=286009393 instance=ExtResource("3_ii55j")]
+[node name="DummyEnemy" parent="." unique_id=1237845330 instance=ExtResource("3_ii55j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5, 1.5000004, -10.2)
+
+[node name="DummyEnemy2" parent="." unique_id=286009393 instance=ExtResource("3_ii55j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5, 1.5000004, -8)
 
-[node name="Enemy3" parent="." unique_id=1224290363 instance=ExtResource("3_ii55j")]
+[node name="DummyEnemy3" parent="." unique_id=1224290363 instance=ExtResource("3_ii55j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 1.5000004, -10.2)
 
-[node name="Enemy4" parent="." unique_id=1121427880 instance=ExtResource("3_ii55j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4, 1.5000004, -10.2)
-
-[node name="Enemy5" parent="." unique_id=1659397261 instance=ExtResource("3_ii55j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8, 1.5000004, -10.2)
-
-[node name="Enemy6" parent="." unique_id=1504899536 instance=ExtResource("3_ii55j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1, 1.5000004, -10.2)
+[node name="SimpleChaseEnemy" parent="." unique_id=974088394 node_paths=PackedStringArray("target") instance=ExtResource("6_xoti3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.8, 1.5000001, 3.9)
+target = NodePath("../Player")

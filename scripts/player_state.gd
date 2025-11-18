@@ -1,6 +1,7 @@
 extends Node
 const TAG = "PlayerState"
 
+var player_ref: Player
 var level := 1
 var experience := 0
 var money := 0

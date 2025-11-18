@@ -30,7 +30,7 @@ corner_radius_bottom_left = 15
 [sub_resource type="ViewportTexture" id="ViewportTexture_61m5h"]
 viewport_path = NodePath("SubViewport")
 
-[node name="HealthBarPivot" type="Node3D" unique_id=1092299156]
+[node name="HealthBarPivot" type="Node3D" unique_id=993036993]
 script = ExtResource("1_7khmv")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=663859328]
