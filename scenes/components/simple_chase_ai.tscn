@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b36lq8ce0mw73"]
+
+[ext_resource type="Script" uid="uid://bnekqag1ql6lt" path="res://scenes/components/simple_chase_ai.gd" id="1_w6blu"]
+
+[node name="SimpleChaseAI" type="Node" unique_id=1896171147]
+script = ExtResource("1_w6blu")

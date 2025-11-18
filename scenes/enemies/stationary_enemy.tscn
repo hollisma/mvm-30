@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://drbmj5iomp844"]
+[gd_scene load_steps=8 format=3 uid="uid://drbmj5iomp844"]
 
-[ext_resource type="Script" uid="uid://dpeobbewa5hyq" path="res://scenes/enemies/dummy_enemy.gd" id="1_6xk8f"]
-[ext_resource type="PackedScene" uid="uid://dth1id2rekshn" path="res://scenes/interfaces/health_component.tscn" id="2_8e3ao"]
+[ext_resource type="Script" uid="uid://dpeobbewa5hyq" path="res://scenes/enemies/stationary_enemy.gd" id="1_6xk8f"]
+[ext_resource type="PackedScene" uid="uid://dth1id2rekshn" path="res://scenes/components/health_component.tscn" id="2_8e3ao"]
 [ext_resource type="PackedScene" uid="uid://beax78p4udixi" path="res://scenes/enemies/health_bar.tscn" id="3_38ino"]
+[ext_resource type="PackedScene" uid="uid://ltxwny78ufa7" path="res://scenes/components/stationary_ai.tscn" id="4_grwen"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e3ao"]
 
@@ -11,7 +12,7 @@ albedo_color = Color(0.72292507, 0.5459746, 0.13986522, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6xk8f"]
 
-[node name="DummyEnemy" type="CharacterBody3D" unique_id=286009393]
+[node name="StationaryEnemy" type="CharacterBody3D" unique_id=286009393]
 script = ExtResource("1_6xk8f")
 
 [node name="Collider" type="CollisionShape3D" parent="." unique_id=1071146617]
@@ -27,3 +28,5 @@ mesh = SubResource("CapsuleMesh_6xk8f")
 
 [node name="HealthBar" parent="." unique_id=1092299156 instance=ExtResource("3_38ino")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3000001, 0)
+
+[node name="AIComponent" parent="." unique_id=2118599053 instance=ExtResource("4_grwen")]

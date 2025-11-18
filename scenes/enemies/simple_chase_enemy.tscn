@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://gdhn8dilltih"]
+[gd_scene load_steps=8 format=3 uid="uid://gdhn8dilltih"]
 
 [ext_resource type="Script" uid="uid://dj3byhkxq3fri" path="res://scenes/enemies/simple_chase_enemy.gd" id="1_3l4qn"]
-[ext_resource type="PackedScene" uid="uid://dth1id2rekshn" path="res://scenes/interfaces/health_component.tscn" id="2_pe6ak"]
+[ext_resource type="PackedScene" uid="uid://dth1id2rekshn" path="res://scenes/components/health_component.tscn" id="2_pe6ak"]
 [ext_resource type="PackedScene" uid="uid://beax78p4udixi" path="res://scenes/enemies/health_bar.tscn" id="3_2ipav"]
+[ext_resource type="PackedScene" uid="uid://b36lq8ce0mw73" path="res://scenes/components/simple_chase_ai.tscn" id="3_pe6ak"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ywo0q"]
 
@@ -27,3 +28,5 @@ mesh = SubResource("CapsuleMesh_r5gga")
 
 [node name="HealthBar" parent="." unique_id=1092299156 instance=ExtResource("3_2ipav")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3000001, 0)
+
+[node name="AIComponent" parent="." unique_id=1896171147 instance=ExtResource("3_pe6ak")]
