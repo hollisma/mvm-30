@@ -6,8 +6,8 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e3ao"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6xk8f"]
-albedo_color = Color(0.88, 0.41360003, 0.41360003, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqhvr"]
+albedo_color = Color(0.72292507, 0.5459746, 0.13986522, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6xk8f"]
 
@@ -20,7 +20,7 @@ shape = SubResource("CapsuleShape3D_8e3ao")
 [node name="Visuals" type="Node3D" parent="." unique_id=376280523]
 
 [node name="Mesh" type="MeshInstance3D" parent="Visuals" unique_id=569980125]
-material_override = SubResource("StandardMaterial3D_6xk8f")
+material_override = SubResource("StandardMaterial3D_yqhvr")
 mesh = SubResource("CapsuleMesh_6xk8f")
 
 [node name="Health" parent="." unique_id=710555215 instance=ExtResource("2_8e3ao")]

@@ -5,9 +5,9 @@ class_name BaseEnemy
 @onready var health_bar = $HealthBar
 
 @export var entity_name := "BaseEnemy"
-@export var max_health := 5.0
-@export var exp_amount := 1
-@export var money_amount := 1
+@export var max_health := 1.0
+@export var exp_amount := 0
+@export var money_amount := 0
 
 func _ready():
 	if health: 
