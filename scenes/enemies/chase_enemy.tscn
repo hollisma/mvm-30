@@ -25,4 +25,4 @@ mesh = SubResource("CapsuleMesh_r5gga")
 
 [node name="HealthComponent" parent="." unique_id=710555215 instance=ExtResource("1_m7f63")]
 
-[node name="AIComponent" parent="." unique_id=749073357 instance=ExtResource("3_jgy3w")]
+[node name="ChaseAI" parent="." unique_id=207012906 instance=ExtResource("3_jgy3w")]

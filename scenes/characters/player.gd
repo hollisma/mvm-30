@@ -1,6 +1,7 @@
 extends CharacterBody3D
 class_name Player
 
+@export var max_health := 10.0
 @export_group("Physics")
 @export var jump_force := 10.0
 @export var gravity := 25.0
@@ -22,6 +23,7 @@ class_name Player
 @onready var collider: CollisionShape3D = $Collider
 @onready var sword: CandyCaneSword = $RightHand/CandyCaneSword
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var health_component = $HealthComponent
 
 @onready var camera_root_offset: Node3D = $CameraRootOffset
 @onready var camera_pivot: Node3D = $CameraRootOffset/CameraPivot
@@ -42,6 +44,7 @@ func _ready():
 	_look_rotation.y = rotation.y
 	_look_rotation.x = camera_pivot.rotation.x
 	_setup_camera()
+	health_component.init(max_health, get_script().get_global_name(), false)
 
 func _setup_camera(): 
 	camera_root_offset.position.y = camera_height_offset

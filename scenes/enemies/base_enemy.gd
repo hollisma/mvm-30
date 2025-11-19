@@ -1,8 +1,9 @@
 extends CharacterBody3D
 class_name BaseEnemy
+### HealthComponent and AIComponent are required
 
-@onready var health_component: HealthComponent = $HealthComponent
-@onready var ai_component: AIComponent = $AIComponent
+@onready var health_component: HealthComponent
+@onready var ai_component: AIComponent
 @onready var nav_agent: NavigationAgent3D
 
 @export var entity_name := "BaseEnemy"
@@ -11,16 +12,17 @@ class_name BaseEnemy
 @export var money_amount := 0
 
 func _ready():
-	if health_component: 
-		health_component.died.connect(_on_died)
-		health_component.init(max_health, entity_name)
-	else: 
-		Logr.warning("No health component for %s" % self, entity_name)
+	for child in get_children(): 
+		if child is HealthComponent: 
+			health_component = child
+		if child is AIComponent: 
+			ai_component = child
+	if health_component == null: Logr.error("No health component for %s" % self, entity_name)
+	if ai_component == null: Logr.error("No AI component for %s" % self, entity_name)
 	
-	if ai_component: 
-		ai_component.init(self)
-	else: 
-		Logr.warning("No AI component for %s" % self, entity_name)
+	health_component.died.connect(_on_died)
+	health_component.init(max_health, entity_name)
+	ai_component.init(self)
 
 func _physics_process(delta): 
 	if ai_component and health_component and health_component.is_alive(): 
