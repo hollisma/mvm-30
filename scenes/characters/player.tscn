@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://njraxn2ljfto"]
+[gd_scene load_steps=12 format=3 uid="uid://njraxn2ljfto"]
 
 [ext_resource type="Script" uid="uid://brcqkn2i6iwc3" path="res://scenes/characters/player.gd" id="1_rp718"]
 [ext_resource type="PackedScene" uid="uid://dth1id2rekshn" path="res://scenes/components/health_component.tscn" id="2_76oj4"]
@@ -70,9 +70,67 @@ tracks/1/keys = {
 "values": [Vector3(0.49999997, 1.4000001, -0.4), Vector3(0.49999997, 0.6000001, -1.2)]
 }
 
+[sub_resource type="Animation" id="Animation_dyp2m"]
+resource_name = "spin"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightHand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.9, 0.9000001, -0.40000004), Vector3(0.29999995, 0.9000001, -1), Vector3(-0.6000001, 0.9000001, -0.9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(2.9775018e-08, -2.094395, 1.5707964), Vector3(2.9775018e-08, -1.3962632, 1.5707964), Vector3(2.9775022e-08, -0.3490656, 1.5707964)]
+}
+
+[sub_resource type="Animation" id="Animation_atpat"]
+resource_name = "slam"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightHand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.4, 0.67),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.34906584, 0, 0), Vector3(0.87266463, 0, 0), Vector3(0.87266463, 0, 0), Vector3(-1.919862, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.4, 0.67),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.49999997, 1.9000001, -0.2), Vector3(0.49999997, 2.1000001, 0.2), Vector3(0.49999997, 2.1000001, 0.20000002), Vector3(0.49999997, 0.5000002, -0.79999995)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dyp2m"]
 _data = {
 &"RESET": SubResource("Animation_76oj4"),
+&"slam": SubResource("Animation_atpat"),
+&"spin": SubResource("Animation_dyp2m"),
 &"swing": SubResource("Animation_yewv4")
 }
 
@@ -95,7 +153,7 @@ cast_shadow = 0
 mesh = SubResource("CapsuleMesh_ucva2")
 
 [node name="RightHand" type="Node3D" parent="." unique_id=717463165]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49999997, 1.4000001, -0.4)
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 0.49999997, 1.4000001, -0.4)
 
 [node name="CandyCaneSword" parent="RightHand" unique_id=358481938 instance=ExtResource("2_yewv4")]
 transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.4226183, 0, -0.4226183, 0.90630776, 0, 0, 0)

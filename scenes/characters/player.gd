@@ -1,6 +1,5 @@
 extends CharacterBody3D
 class_name Player
-const TAG = "Player"
 
 @export_group("Physics")
 @export var jump_force := 10.0
@@ -16,6 +15,9 @@ const TAG = "Player"
 @export var base_speed := 7.0
 @export var sprint_speed := 10.0
 @export var freefly_speed := 25.0
+@export_group("Attack")
+@export var followup_attack_threshold := 1.0
+@export var attack_cooldown := 0.25 # Min time before next attack
 
 @onready var collider: CollisionShape3D = $Collider
 @onready var sword: CandyCaneSword = $RightHand/CandyCaneSword
@@ -31,7 +33,10 @@ var _move_speed := 0.0
 var _look_rotation: Vector2
 var _mouse_captured := false
 var _freeflying := false
+
 var _swinging := false
+var _attack_state: Enums.CandyCaneAttacks = Enums.CandyCaneAttacks.NONE
+var _attack_timer := 0.0
 
 func _ready():
 	_look_rotation.y = rotation.y
@@ -62,10 +67,6 @@ func _unhandled_input(event: InputEvent):
 			enable_freefly()
 		else:
 			disable_freefly()
-	
-	# Attack
-	if Input.is_action_just_pressed("attack"): 
-		_swing()
 
 ################
 ### MOVEMENT ###
@@ -101,6 +102,11 @@ func _physics_process(delta: float):
 		velocity.z = move_toward(velocity.z, 0, delta * friction)
 	
 	move_and_slide()
+	
+	# Attack
+	_attack_timer += delta
+	if Input.is_action_just_pressed("attack"): 
+		_swing()
 
 func _do_freefly_move(delta: float): 
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
@@ -117,17 +123,38 @@ func _get_gravity() -> Vector3:
 
 func _swing(): 
 	if _swinging: return
+	
+	# Determine which attack to do and do attack
 	_swinging = true
-	sword.start_swing()
-	animation_player.play("swing")
+	if _attack_timer > followup_attack_threshold or _attack_state == Enums.CandyCaneAttacks.NONE: 
+		_attack_state = Enums.CandyCaneAttacks.SWING
+		animation_player.play("swing")
+	else: 
+		match _attack_state: 
+			Enums.CandyCaneAttacks.SWING: 
+				_attack_state = Enums.CandyCaneAttacks.SPIN
+				animation_player.play("spin")
+			Enums.CandyCaneAttacks.SPIN: 
+				_attack_state = Enums.CandyCaneAttacks.SLAM
+				animation_player.play("slam")
+			Enums.CandyCaneAttacks.SLAM: 
+				_attack_state = Enums.CandyCaneAttacks.SWING
+				animation_player.play("swing")
+	sword.start_swing(_attack_state)
+	
+	# Finish attack and start timer for followup attack
+	Logr.debug("Doing attack: %s" % Enums.CandyCaneAttacks.keys()[_attack_state], get_script().get_global_name())
 	await animation_player.animation_finished
-	
-	await get_tree().create_timer(0.3).timeout
-	
+	await get_tree().create_timer(attack_cooldown).timeout
 	sword.finish_swing()
-	animation_player.play_backwards("swing")
-	await animation_player.animation_finished
+	_attack_timer = 0.0
 	_swinging = false
+	
+	# Reset animation if no followup attack
+	var current_attack := _attack_state
+	await get_tree().create_timer(followup_attack_threshold).timeout
+	if current_attack == _attack_state: 
+		animation_player.play_backwards("swing")
 
 #############
 ### MOUSE ###
@@ -154,12 +181,12 @@ func rotate_gaze(rot_input: Vector2):
 #############
 
 func enable_freefly():
-	Logr.info(TAG, "Freefly enabled")
+	Logr.info("Freefly enabled", get_script().get_global_name())
 	collider.disabled = true
 	_freeflying = true
 	velocity = Vector3.ZERO
 
 func disable_freefly():
-	Logr.info(TAG, "Freefly disabled")
+	Logr.info("Freefly disabled", get_script().get_global_name())
 	collider.disabled = false
 	_freeflying = false
