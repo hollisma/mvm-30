@@ -24,7 +24,7 @@ shape = SubResource("CapsuleShape3D_ywo0q")
 material_override = SubResource("StandardMaterial3D_xoeni")
 mesh = SubResource("CapsuleMesh_r5gga")
 
-[node name="Health" parent="." unique_id=710555215 instance=ExtResource("2_pe6ak")]
+[node name="HealthComponent" parent="." unique_id=710555215 instance=ExtResource("2_pe6ak")]
 
 [node name="HealthBar" parent="." unique_id=1092299156 instance=ExtResource("3_2ipav")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3000001, 0)

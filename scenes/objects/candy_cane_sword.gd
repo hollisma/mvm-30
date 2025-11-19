@@ -1,27 +1,17 @@
 extends Node3D
 class_name CandyCaneSword
 
-@onready var collision_area: Area3D = $CollisionArea
-
-var _current_attack: Enums.CandyCaneAttacks
-var _entities_damaged_in_current_swing: Array[Node3D]
+@onready var hitbox_component: HitboxComponent = $HitboxComponent
 
 func _ready():
-	collision_area.body_entered.connect(_on_body_entered)
-	collision_area.monitoring = false
+	hitbox_component.disable()
 
-func _on_body_entered(body: Node3D): 
-	if body.has_method("apply_damage") and body not in _entities_damaged_in_current_swing: 
-		body.apply_damage(_get_attack_power_for_attack(_current_attack))
-		_entities_damaged_in_current_swing.append(body)
+func start_attack(attack: Enums.CandyCaneAttacks): 
+	var attack_power := _get_attack_power_for_attack(attack)
+	hitbox_component.enable(attack_power)
 
-func start_swing(attack: Enums.CandyCaneAttacks): 
-	collision_area.monitoring = true
-	_current_attack = attack
-
-func finish_swing(): 
-	collision_area.monitoring = false
-	_entities_damaged_in_current_swing.clear()
+func finish_attack(): 
+	hitbox_component.disable()
 
 func _get_attack_power_for_attack(attack: Enums.CandyCaneAttacks) -> int: 
 	match attack: 

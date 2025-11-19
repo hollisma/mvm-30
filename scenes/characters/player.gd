@@ -106,7 +106,7 @@ func _physics_process(delta: float):
 	# Attack
 	_attack_timer += delta
 	if Input.is_action_just_pressed("attack"): 
-		_swing()
+		_try_swing()
 
 func _do_freefly_move(delta: float): 
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
@@ -121,7 +121,7 @@ func _get_gravity() -> Vector3:
 ### ATTACK ###
 ##############
 
-func _swing(): 
+func _try_swing(): 
 	if _swinging: return
 	
 	# Determine which attack to do and do attack
@@ -140,13 +140,13 @@ func _swing():
 			Enums.CandyCaneAttacks.SLAM: 
 				_attack_state = Enums.CandyCaneAttacks.SWING
 				animation_player.play("swing")
-	sword.start_swing(_attack_state)
+	sword.start_attack(_attack_state)
 	
 	# Finish attack and start timer for followup attack
 	Logr.debug("Doing attack: %s" % Enums.CandyCaneAttacks.keys()[_attack_state], get_script().get_global_name())
 	await animation_player.animation_finished
 	await get_tree().create_timer(attack_cooldown).timeout
-	sword.finish_swing()
+	sword.finish_attack()
 	_attack_timer = 0.0
 	_swinging = false
 	

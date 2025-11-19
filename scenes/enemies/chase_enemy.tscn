@@ -14,6 +14,10 @@ albedo_color = Color(0.88, 0.41360003, 0.41360003, 1)
 
 [node name="ChaseEnemy" type="CharacterBody3D" unique_id=286009393]
 script = ExtResource("1_os0ep")
+entity_name = null
+max_health = null
+exp_amount = null
+money_amount = null
 
 [node name="Collider" type="CollisionShape3D" parent="." unique_id=1071146617]
 shape = SubResource("CapsuleShape3D_ywo0q")
@@ -24,7 +28,7 @@ shape = SubResource("CapsuleShape3D_ywo0q")
 material_override = SubResource("StandardMaterial3D_xoeni")
 mesh = SubResource("CapsuleMesh_r5gga")
 
-[node name="Health" parent="." unique_id=710555215 instance=ExtResource("1_m7f63")]
+[node name="HealthComponent" parent="." unique_id=710555215 instance=ExtResource("1_m7f63")]
 
 [node name="HealthBar" parent="." unique_id=1092299156 instance=ExtResource("2_os0ep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3000001, 0)
