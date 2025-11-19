@@ -6,5 +6,8 @@ var owner_enemy: BaseEnemy
 func init(enemy: BaseEnemy): 
 	owner_enemy = enemy
 
-func get_steering(_delta: float) -> Vector3: 
+func get_steering() -> Vector3: 
 	return Vector3.ZERO
+
+func get_attack_decision() -> bool: 
+	return false

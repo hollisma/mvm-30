@@ -4,7 +4,6 @@ class_name BaseEnemy
 
 @onready var health_component: HealthComponent
 @onready var ai_component: AIComponent
-@onready var nav_agent: NavigationAgent3D
 
 @export var entity_name := "BaseEnemy"
 @export var max_health := 1.0
@@ -24,12 +23,16 @@ func _ready():
 	health_component.init(max_health, entity_name)
 	ai_component.init(self)
 
-func _physics_process(delta): 
-	if ai_component and health_component and health_component.is_alive(): 
-		var steer = ai_component.get_steering(delta)
-		velocity.x = steer.x
-		velocity.z = steer.z
-		move_and_slide()
+func _physics_process(_delta): 
+	if not health_component.is_alive(): 
+		return
+	
+	velocity = ai_component.get_steering()
+	move_and_slide()
+	
+	if ai_component.get_attack_decision(): 
+		print("Enemy attacking")
+		pass # attack_component.attack()
 
 func apply_damage(amount: float): 
 	if health_component: health_component.apply_damage(amount)
