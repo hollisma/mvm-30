@@ -1,8 +1,7 @@
 extends CharacterBody3D
 class_name BaseEnemy
 
-@onready var health_component := $HealthComponent
-@onready var health_bar := $HealthBar
+@onready var health_component: HealthComponent = $HealthComponent
 @onready var ai_component: AIComponent = $AIComponent
 @onready var nav_agent: NavigationAgent3D
 
@@ -14,15 +13,9 @@ class_name BaseEnemy
 func _ready():
 	if health_component: 
 		health_component.died.connect(_on_died)
-		health_component.damaged.connect(_on_damaged)
 		health_component.init(max_health, entity_name)
 	else: 
 		Logr.warning("No health component for %s" % self, entity_name)
-	
-	if health_bar: 
-		health_bar.init(max_health)
-	else: 
-		Logr.warning("No health bar for %s" % self, entity_name)
 	
 	if ai_component: 
 		ai_component.init(self)
@@ -39,8 +32,8 @@ func _physics_process(delta):
 func apply_damage(amount: float): 
 	if health_component: health_component.apply_damage(amount)
 
-func _on_damaged(): 
-	if health_bar: health_bar.set_health(health_component.current_health)
+func set_health_bar(toggle: bool): 
+	health_component.set_health_bar(toggle)
 
 func _on_died(): 
 	PlayerState.add_exp(exp_amount)

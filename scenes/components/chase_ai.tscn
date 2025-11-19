@@ -2,5 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b4vklp2grkmdt" path="res://scenes/components/chase_ai.gd" id="1_vfd8t"]
 
-[node name="ChaseAI" type="Node" unique_id=749073357]
+[node name="ChaseAI" type="Node3D" unique_id=207012906]
 script = ExtResource("1_vfd8t")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=127067219]

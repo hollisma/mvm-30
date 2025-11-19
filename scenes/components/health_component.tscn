@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dth1id2rekshn"]
+[gd_scene load_steps=3 format=3 uid="uid://dth1id2rekshn"]
 
 [ext_resource type="Script" uid="uid://dvvemhialaj3s" path="res://scenes/components/health_component.gd" id="1_1hqm1"]
+[ext_resource type="PackedScene" uid="uid://beax78p4udixi" path="res://scenes/components/health_bar.tscn" id="2_at0e7"]
 
-[node name="HealthComponent" type="Node" unique_id=710555215]
+[node name="HealthComponent" type="Node3D" unique_id=1682875751]
 script = ExtResource("1_1hqm1")
+
+[node name="HealthBar" parent="." unique_id=993036993 instance=ExtResource("2_at0e7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3000001, 0)

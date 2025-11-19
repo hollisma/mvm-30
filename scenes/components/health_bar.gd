@@ -1,4 +1,5 @@
 extends Node3D
+class_name HealthBar
 
 @onready var health_bar := $SubViewport/HealthBar
 

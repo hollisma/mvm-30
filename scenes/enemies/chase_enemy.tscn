@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxlcqev27lq4d"]
+[gd_scene load_steps=7 format=3 uid="uid://cxlcqev27lq4d"]
 
 [ext_resource type="PackedScene" uid="uid://dth1id2rekshn" path="res://scenes/components/health_component.tscn" id="1_m7f63"]
 [ext_resource type="Script" uid="uid://cobdgmw8wx4r5" path="res://scenes/enemies/chase_enemy.gd" id="1_os0ep"]
-[ext_resource type="PackedScene" uid="uid://beax78p4udixi" path="res://scenes/enemies/health_bar.tscn" id="2_os0ep"]
 [ext_resource type="PackedScene" uid="uid://cd5jd4nmbrfwv" path="res://scenes/components/chase_ai.tscn" id="3_jgy3w"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ywo0q"]
@@ -14,10 +13,6 @@ albedo_color = Color(0.88, 0.41360003, 0.41360003, 1)
 
 [node name="ChaseEnemy" type="CharacterBody3D" unique_id=286009393]
 script = ExtResource("1_os0ep")
-entity_name = null
-max_health = null
-exp_amount = null
-money_amount = null
 
 [node name="Collider" type="CollisionShape3D" parent="." unique_id=1071146617]
 shape = SubResource("CapsuleShape3D_ywo0q")
@@ -30,9 +25,4 @@ mesh = SubResource("CapsuleMesh_r5gga")
 
 [node name="HealthComponent" parent="." unique_id=710555215 instance=ExtResource("1_m7f63")]
 
-[node name="HealthBar" parent="." unique_id=1092299156 instance=ExtResource("2_os0ep")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3000001, 0)
-
 [node name="AIComponent" parent="." unique_id=749073357 instance=ExtResource("3_jgy3w")]
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2127217992]

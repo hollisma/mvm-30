@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 class_name AIComponent
 
 var owner_enemy: BaseEnemy

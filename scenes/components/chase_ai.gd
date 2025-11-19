@@ -1,6 +1,8 @@
 extends AIComponent
 class_name ChaseAI
 
+@onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
+
 @export var move_speed := 4.0
 @export var stop_distance := 1.7
 var chase_target: Node3D
@@ -18,7 +20,6 @@ func get_steering(_delta: float) -> Vector3:
 		Logr.warning("No chase target", get_script().get_global_name())
 		return Vector3.ZERO
 	
-	var nav_agent := owner_enemy.nav_agent
 	nav_agent.target_position = chase_target.global_position
 	nav_agent.max_speed = move_speed
 	
