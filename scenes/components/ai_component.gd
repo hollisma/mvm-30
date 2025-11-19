@@ -9,5 +9,5 @@ func init(enemy: BaseEnemy):
 func get_steering() -> Vector3: 
 	return Vector3.ZERO
 
-func get_attack_decision() -> bool: 
-	return false
+func get_attack_decision() -> Enums.EnemyAttackTypes: 
+	return Enums.EnemyAttackTypes.NONE

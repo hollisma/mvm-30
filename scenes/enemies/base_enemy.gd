@@ -30,9 +30,10 @@ func _physics_process(_delta):
 	velocity = ai_component.get_steering()
 	move_and_slide()
 	
-	if ai_component.get_attack_decision(): 
-		print("Enemy attacking")
-		pass # attack_component.attack()
+	var attack_decision := ai_component.get_attack_decision()
+	if attack_decision != Enums.EnemyAttackTypes.NONE: 
+		print("Enemy attacking: %s" % Enums.EnemyAttackTypes.keys()[attack_decision])
+		# attack_component.attack(attack_decision)
 
 func apply_damage(amount: float): 
 	if health_component: health_component.apply_damage(amount)
