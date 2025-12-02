@@ -1,0 +1,161 @@
+[gd_scene load_steps=14 format=3 uid="uid://k58smrdgsdn0"]
+
+[ext_resource type="Script" uid="uid://7f27yrnq6bs5" path="res://scenes/enemies/sword_enemy.gd" id="1_y1535"]
+[ext_resource type="PackedScene" uid="uid://dth1id2rekshn" path="res://scenes/components/health_component.tscn" id="2_cq6rk"]
+[ext_resource type="PackedScene" uid="uid://cd5jd4nmbrfwv" path="res://scenes/components/chase_attack_ai.tscn" id="3_cao7d"]
+[ext_resource type="PackedScene" uid="uid://c8sgpiv0hf3ct" path="res://scenes/components/attack_component.tscn" id="4_b37aw"]
+[ext_resource type="PackedScene" uid="uid://bb6734o2ir4f7" path="res://scenes/objects/sword.tscn" id="6_cq6rk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ywo0q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xoeni"]
+albedo_color = Color(0.88, 0.41360003, 0.41360003, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_r5gga"]
+
+[sub_resource type="Animation" id="Animation_cq6rk"]
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightHand/Sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.4, -0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand/Sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.6580628, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cao7d"]
+resource_name = "active"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightHand/Sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.5, 0.1), Vector3(0, -1.6000005, -0.2000001)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand/Sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.2617994, 0, 0), Vector3(-2.0071287, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y1535"]
+resource_name = "windup"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightHand/Sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.4000003, -0.30000013), Vector3(0, -0.5, 0.099999994)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand/Sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.6580629, 0, 0), Vector3(-0.2617996, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b37aw"]
+resource_name = "recovery"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightHand/Sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.6000005, -0.2000001), Vector3(0, -1.6000005, -0.2000001), Vector3(0, -1.4000003, -0.30000013)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand/Sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.0071287, 0, 0), Vector3(-2.0071287, 0, 0), Vector3(-1.6580629, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cq6rk"]
+_data = {
+&"RESET": SubResource("Animation_cq6rk"),
+&"active": SubResource("Animation_cao7d"),
+&"recovery": SubResource("Animation_b37aw"),
+&"windup": SubResource("Animation_y1535")
+}
+
+[node name="SwordEnemy" type="CharacterBody3D" unique_id=286009393]
+script = ExtResource("1_y1535")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1071146617]
+shape = SubResource("CapsuleShape3D_ywo0q")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=376280523]
+
+[node name="Mesh" type="MeshInstance3D" parent="Visuals" unique_id=569980125]
+material_override = SubResource("StandardMaterial3D_xoeni")
+mesh = SubResource("CapsuleMesh_r5gga")
+
+[node name="HealthComponent" parent="." unique_id=710555215 instance=ExtResource("2_cq6rk")]
+
+[node name="ChaseAI" parent="." unique_id=207012906 instance=ExtResource("3_cao7d")]
+
+[node name="AttackComponent" parent="." unique_id=262019584 instance=ExtResource("4_b37aw")]
+
+[node name="RightHand" type="Node3D" parent="." unique_id=499633549]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 0.49999997, 1.4000001, -0.4)
+
+[node name="Sword" parent="RightHand" unique_id=1874657561 instance=ExtResource("6_cq6rk")]
+transform = Transform3D(1, 0, 0, 0, -0.08715577, 0.9961947, 0, -0.9961947, -0.08715577, 0, -1.4, -0.3)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=997192398]
+libraries = {
+&"": SubResource("AnimationLibrary_cq6rk")
+}

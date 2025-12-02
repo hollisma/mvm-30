@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://06tul1dr0kp3"]
+[gd_scene load_steps=12 format=3 uid="uid://06tul1dr0kp3"]
 
 [ext_resource type="PackedScene" uid="uid://d0f5q3kkeg7s7" path="res://scenes/levels/level.tscn" id="1_6awnf"]
 [ext_resource type="Script" uid="uid://8ddbwxemodfk" path="res://scenes/system/main.gd" id="1_628vv"]
 [ext_resource type="PackedScene" uid="uid://njraxn2ljfto" path="res://scenes/characters/player.tscn" id="2_ii55j"]
 [ext_resource type="PackedScene" uid="uid://drbmj5iomp844" path="res://scenes/enemies/stationary_enemy.tscn" id="3_ii55j"]
 [ext_resource type="PackedScene" uid="uid://cohxnw8spigs6" path="res://scenes/ui/hud.tscn" id="4_5m258"]
+[ext_resource type="PackedScene" uid="uid://k58smrdgsdn0" path="res://scenes/enemies/sword_enemy.tscn" id="7_t1oto"]
 [ext_resource type="PackedScene" uid="uid://cxlcqev27lq4d" path="res://scenes/enemies/chase_enemy.tscn" id="7_uaibl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6awnf"]
@@ -56,7 +57,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 1.5000004, -10.2)
 
 [node name="ChaseEnemy" parent="." unique_id=1403435692 instance=ExtResource("7_uaibl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2, 1.5, 5.5000005)
-entity_name = null
-max_health = null
-exp_amount = null
-money_amount = null
+
+[node name="SwordEnemy" parent="." unique_id=1264666021 instance=ExtResource("7_t1oto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.900002, 1.5000001, 10.9)

@@ -32,13 +32,6 @@ func get_steering() -> Vector3:
 		return lerp(owner_enemy.velocity, Vector3.ZERO, 0.2)
 
 func get_attack_decision() -> Enums.EnemyAttackTypes:
-	if not _init: return Enums.EnemyAttackTypes.NONE
-	if not chase_target: 
-		Logr.warning("No chase target", get_script().get_global_name())
-		return Enums.EnemyAttackTypes.NONE
-	
-	if _get_distance_to_target() < attack_range: 
-		return Enums.EnemyAttackTypes.MELEE
 	return Enums.EnemyAttackTypes.NONE
 
 func _get_distance_to_target() -> float: 

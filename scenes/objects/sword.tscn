@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb6734o2ir4f7"]
+
+[ext_resource type="PackedScene" uid="uid://chgsxiksdpiqd" path="res://scenes/components/hitbox_component.tscn" id="2_m0mw8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u03ek"]
+size = Vector3(0.2, 1.6, 0.4)
+
+[node name="Sword" type="Node3D" unique_id=358481938]
+
+[node name="HitboxComponent" parent="." unique_id=12619311 instance=ExtResource("2_m0mw8")]
+collision_mask = 3
+
+[node name="Collider" type="CollisionShape3D" parent="HitboxComponent" unique_id=1077742644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2154064e-08, -8.046627e-07, 1.4901161e-08)
+shape = SubResource("BoxShape3D_u03ek")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2067556422]
+
+[node name="Mesh" type="CSGBox3D" parent="Visuals" unique_id=2104370970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2351742e-08, 1.4901161e-07, 1.4901161e-08)
+size = Vector3(0.2, 1.6, 0.4)

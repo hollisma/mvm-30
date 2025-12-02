@@ -45,6 +45,7 @@ func _ready():
 	_look_rotation.x = camera_pivot.rotation.x
 	_setup_camera()
 	health_component.init(max_health, get_script().get_global_name(), false)
+	health_component.damaged.connect(_on_damaged)
 
 func _setup_camera(): 
 	camera_root_offset.position.y = camera_height_offset
@@ -178,6 +179,13 @@ func rotate_gaze(rot_input: Vector2):
 	
 	rotate_y(_look_rotation.y) # Rotate entire player left / right
 	camera_pivot.rotation.x = _look_rotation.x
+
+################
+### HANDLERS ###
+################
+
+func _on_damaged(): 
+	print("on damaged")
 
 #############
 ### OTHER ###

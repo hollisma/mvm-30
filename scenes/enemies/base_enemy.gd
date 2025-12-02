@@ -29,11 +29,15 @@ func _physics_process(_delta):
 	
 	velocity = ai_component.get_steering()
 	move_and_slide()
+	_look_at_direction(velocity)
 	
 	var attack_decision := ai_component.get_attack_decision()
 	if attack_decision != Enums.EnemyAttackTypes.NONE: 
-		print("Enemy attacking: %s" % Enums.EnemyAttackTypes.keys()[attack_decision])
-		# attack_component.attack(attack_decision)
+		do_attack(attack_decision)
+
+# To be implemented by enemy
+func do_attack(_attack_decision: Enums.EnemyAttackTypes): 
+	pass
 
 func apply_damage(amount: float): 
 	if health_component: health_component.apply_damage(amount)
@@ -45,3 +49,9 @@ func _on_died():
 	PlayerState.add_exp(exp_amount)
 	PlayerState.add_money(money_amount)
 	queue_free()
+
+func _look_at_direction(dir: Vector3): 
+	dir.y = 0
+	if dir.length_squared() < 0.0001: 
+		return
+	look_at(global_position + dir, Vector3.UP)
