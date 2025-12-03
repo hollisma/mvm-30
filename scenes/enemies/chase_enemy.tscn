@@ -12,6 +12,8 @@ albedo_color = Color(0.88, 0.41360003, 0.41360003, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_r5gga"]
 
 [node name="ChaseEnemy" type="CharacterBody3D" unique_id=286009393]
+collision_layer = 4
+collision_mask = 79
 script = ExtResource("1_os0ep")
 
 [node name="Collider" type="CollisionShape3D" parent="." unique_id=1071146617]

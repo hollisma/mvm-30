@@ -8,7 +8,8 @@ size = Vector3(0.2, 1.6, 0.4)
 [node name="Sword" type="Node3D" unique_id=358481938]
 
 [node name="HitboxComponent" parent="." unique_id=12619311 instance=ExtResource("2_m0mw8")]
-collision_mask = 3
+collision_layer = 16
+collision_mask = 2
 
 [node name="Collider" type="CollisionShape3D" parent="HitboxComponent" unique_id=1077742644]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2154064e-08, -8.046627e-07, 1.4901161e-08)
