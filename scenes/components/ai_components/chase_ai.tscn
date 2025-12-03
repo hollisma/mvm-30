@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bco5up0jlhlyu"]
 
-[ext_resource type="Script" uid="uid://ca2g8yqwkk1xb" path="res://scenes/components/chase_ai.gd" id="1_vfd8t"]
+[ext_resource type="Script" uid="uid://ca2g8yqwkk1xb" path="res://scenes/components/ai_components/chase_ai.gd" id="1_vfd8t"]
 
 [node name="ChaseAI" type="Node3D" unique_id=207012906]
 script = ExtResource("1_vfd8t")

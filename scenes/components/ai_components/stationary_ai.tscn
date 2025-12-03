@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ltxwny78ufa7"]
 
-[ext_resource type="Script" uid="uid://dchxjs58w2hlr" path="res://scenes/components/stationary_ai.gd" id="1_d34mo"]
+[ext_resource type="Script" uid="uid://dchxjs58w2hlr" path="res://scenes/components/ai_components/stationary_ai.gd" id="1_d34mo"]
 
 [node name="StationaryAI" type="Node3D" unique_id=1092853996]
 script = ExtResource("1_d34mo")

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dth1id2rekshn" path="res://scenes/components/health_component.tscn" id="1_m7f63"]
 [ext_resource type="Script" uid="uid://cobdgmw8wx4r5" path="res://scenes/enemies/chase_enemy.gd" id="1_os0ep"]
-[ext_resource type="PackedScene" uid="uid://bco5up0jlhlyu" path="res://scenes/components/chase_ai.tscn" id="3_jgy3w"]
+[ext_resource type="PackedScene" uid="uid://bco5up0jlhlyu" path="res://scenes/components/ai_components/chase_ai.tscn" id="3_jgy3w"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ywo0q"]
 
