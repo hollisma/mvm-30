@@ -46,6 +46,7 @@ func _ready():
 	_setup_camera()
 	health_component.init(max_health, get_script().get_global_name(), false)
 	health_component.damaged.connect(_on_damaged)
+	update_health()
 
 func _setup_camera(): 
 	camera_root_offset.position.y = camera_height_offset
@@ -185,7 +186,10 @@ func rotate_gaze(rot_input: Vector2):
 ################
 
 func _on_damaged(): 
-	print("on damaged")
+	update_health()
+
+func update_health(): 
+	PlayerState.set_health(health_component.current_health)
 
 #############
 ### OTHER ###

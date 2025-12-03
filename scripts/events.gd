@@ -4,3 +4,4 @@ extends Node
 signal level_changed
 signal exp_changed
 signal money_changed
+signal health_changed
