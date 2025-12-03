@@ -9,17 +9,20 @@ const HEALTH_LABEL_TEXT := "Health: %d"
 @onready var exp_label = $ExpLabel
 @onready var money_label = $MoneyLabel
 @onready var health_label = $HealthLabel
+@onready var win_label = $WinLabel
 
 func _ready(): 
 	Events.level_changed.connect(_update_level_text)
 	Events.exp_changed.connect(_update_exp_text)
 	Events.money_changed.connect(_update_money_text)
 	Events.health_changed.connect(_update_health_text)
+	Events.star_piece_collected.connect(_on_star_piece_collected)
 	
 	_update_level_text()
 	_update_exp_text()
 	_update_money_text()
 	_update_health_text()
+	win_label.hide()
 
 func _update_level_text(): 
 	level_label.text = LEVEL_LABEL_TEXT % PlayerState.level
@@ -32,3 +35,6 @@ func _update_money_text():
 
 func _update_health_text(): 
 	health_label.text = HEALTH_LABEL_TEXT % PlayerState.health
+
+func _on_star_piece_collected(): 
+	win_label.show()

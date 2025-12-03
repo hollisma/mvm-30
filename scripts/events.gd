@@ -5,3 +5,5 @@ signal level_changed
 signal exp_changed
 signal money_changed
 signal health_changed
+
+signal star_piece_collected

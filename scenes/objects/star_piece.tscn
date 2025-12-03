@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://oxm73f28r4xg"]
+
+[ext_resource type="Script" uid="uid://5mojjs5d01p5" path="res://scenes/objects/star_piece.gd" id="1_l5oyb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avf3k"]
+albedo_color = Color(2.454227, 2.3400633, 0.74176866, 1)
+
+[node name="StarPiece" type="Area3D" unique_id=37873149]
+collision_mask = 3
+script = ExtResource("1_l5oyb")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1261739725]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Visuals" unique_id=185651338]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Visuals/CSGMesh3D" unique_id=821258636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+polygon = PackedVector2Array(-0.4, -0.4, 0, 0.90000004, 0.4, -0.4)
+depth = 0.4
+material = SubResource("StandardMaterial3D_avf3k")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="." unique_id=1128256386]
+depth = 0.4
+polygon = PackedVector2Array(-0.4, -0.4, 0, 0.9, 0.4, -0.4)
