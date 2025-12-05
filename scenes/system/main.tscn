@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://06tul1dr0kp3"]
+[gd_scene load_steps=14 format=3 uid="uid://06tul1dr0kp3"]
 
 [ext_resource type="PackedScene" uid="uid://d0f5q3kkeg7s7" path="res://scenes/levels/level.tscn" id="1_6awnf"]
 [ext_resource type="Script" uid="uid://8ddbwxemodfk" path="res://scenes/system/main.gd" id="1_628vv"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://k58smrdgsdn0" path="res://scenes/enemies/sword_enemy.tscn" id="7_t1oto"]
 [ext_resource type="PackedScene" uid="uid://cxlcqev27lq4d" path="res://scenes/enemies/chase_enemy.tscn" id="7_uaibl"]
 [ext_resource type="PackedScene" uid="uid://oxm73f28r4xg" path="res://scenes/objects/star_piece.tscn" id="8_t1oto"]
+[ext_resource type="PackedScene" uid="uid://8ac152xes33n" path="res://scenes/enemies/ranged_enemy.tscn" id="9_bptr8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6awnf"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -64,3 +65,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.900002, 1.5000001, 10.9)
 
 [node name="StarPiece" parent="." unique_id=37873149 instance=ExtResource("8_t1oto")]
 transform = Transform3D(0.76604444, 0, -0.6427876, 0, 1, 0, 0.6427876, 0, 0.76604444, -15.199999, 1.2000002, -9.9)
+
+[node name="RangedEnemy" parent="." unique_id=884924017 instance=ExtResource("9_bptr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.3, 1.5, 9)

@@ -1,0 +1,42 @@
+[gd_scene load_steps=10 format=3 uid="uid://8ac152xes33n"]
+
+[ext_resource type="Script" uid="uid://csqb5mfi0hl1d" path="res://scenes/enemies/ranged_enemy.gd" id="1_fejvx"]
+[ext_resource type="PackedScene" uid="uid://dth1id2rekshn" path="res://scenes/components/health_component.tscn" id="1_yiki0"]
+[ext_resource type="PackedScene" uid="uid://bwug58cvlqui4" path="res://scenes/components/ai_components/chase_ranged_attack_ai.tscn" id="3_yiki0"]
+[ext_resource type="PackedScene" uid="uid://cuina2enr1fc5" path="res://scenes/components/ranged_attack_component.tscn" id="4_yiki0"]
+[ext_resource type="Resource" uid="uid://cufaq0fqrqvij" path="res://scenes/enemies/ranged_enemy_attack.tres" id="5_a7ubc"]
+[ext_resource type="PackedScene" uid="uid://grot7jpvesjt" path="res://scenes/objects/arrow_projectile.tscn" id="5_fejvx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ywo0q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xoeni"]
+albedo_color = Color(0.88, 0.41360003, 0.41360003, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_r5gga"]
+
+[node name="RangedEnemy" type="CharacterBody3D" unique_id=286009393]
+collision_layer = 4
+collision_mask = 79
+script = ExtResource("1_fejvx")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1071146617]
+shape = SubResource("CapsuleShape3D_ywo0q")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=376280523]
+
+[node name="Mesh" type="MeshInstance3D" parent="Visuals" unique_id=569980125]
+material_override = SubResource("StandardMaterial3D_xoeni")
+mesh = SubResource("CapsuleMesh_r5gga")
+
+[node name="HealthComponent" parent="." unique_id=710555215 instance=ExtResource("1_yiki0")]
+
+[node name="ChaseRangedAttackAI" parent="." unique_id=239122941 instance=ExtResource("3_yiki0")]
+move_speed = 1.5
+
+[node name="RangedAttackComponent" parent="." unique_id=623434467 node_paths=PackedStringArray("spawn_point") instance=ExtResource("4_yiki0")]
+attack_data = ExtResource("5_a7ubc")
+projectile_scene = ExtResource("5_fejvx")
+spawn_point = NodePath("../Marker3D")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=278036393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.1, -0.5)

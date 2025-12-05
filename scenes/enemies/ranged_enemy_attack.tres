@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AttackData" load_steps=2 format=3 uid="uid://cufaq0fqrqvij"]
+
+[ext_resource type="Script" uid="uid://dllpasuxqrd24" path="res://scripts/datatypes/attack_data.gd" id="1_j28p2"]
+
+[resource]
+script = ExtResource("1_j28p2")
+attack_name = "shoot_arrow"
+damage = 1.0
+active_time = 2.5
+metadata/_custom_type_script = "uid://dllpasuxqrd24"

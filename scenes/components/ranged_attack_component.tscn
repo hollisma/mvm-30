@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuina2enr1fc5"]
+
+[ext_resource type="Script" uid="uid://c4gkr3fijeb2j" path="res://scenes/components/ranged_attack_component.gd" id="1_yvd6x"]
+
+[node name="RangedAttackComponent" type="Node" unique_id=623434467]
+script = ExtResource("1_yvd6x")

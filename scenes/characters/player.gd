@@ -185,6 +185,9 @@ func rotate_gaze(rot_input: Vector2):
 ### HANDLERS ###
 ################
 
+func apply_damage(amount: float): 
+	if health_component: health_component.apply_damage(amount)
+
 func _on_damaged(): 
 	update_health()
 

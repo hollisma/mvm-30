@@ -11,3 +11,7 @@ func get_steering() -> Vector3:
 
 func get_attack_decision() -> Enums.EnemyAttackTypes: 
 	return Enums.EnemyAttackTypes.NONE
+
+func get_target_position() -> Vector3: 
+	Logr.error("AIComponent get_target_position unimplemented", owner_enemy.entity_name)
+	return Vector3.ZERO
