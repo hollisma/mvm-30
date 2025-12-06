@@ -28,7 +28,6 @@ func _start_attack():
 	Logr.debug("Start attack", entity_name)
 	_set_state(Enums.AttackStates.WINDUP)
 	timer = attack_data.windup
-	print("hi ", attack_data.windup, " ", attack_data.active_time, " ", attack_data.cooldown)
 
 func _start_active():
 	Logr.debug("Start active (spawning projectible)", entity_name)

@@ -4,8 +4,6 @@ class_name ArrowProjectile
 @export var speed: float = 15.0
 @export var max_distance: float = 50.0
 
-@onready var ray: RayCast3D = $RayCast3D
-
 var _damage: float = 0.0
 var _direction: Vector3 = Vector3.ZERO
 var _origin: Vector3
@@ -29,11 +27,14 @@ func _physics_process(_delta: float) -> void:
 	velocity = _direction * speed
 	move_and_slide()
 	
-	# Raycast in front to detect hitboxes or environment
-	if ray.is_colliding():
-		var collider = ray.get_collider()
-		print("Ray collision ", collider)
-		if collider and collider.has_method("apply_damage"):
+	# Collision detection
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if not collider:
+			continue
+		Logr.info("Arrow hit: %s" % collider, get_script().get_global_name())
+		if collider.has_method("apply_damage"):
 			collider.apply_damage(_damage)
 		queue_free()
 		return
