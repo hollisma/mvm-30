@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqytdq0ikc0xs"]
+
+[ext_resource type="PackedScene" uid="uid://b3rjthtbbcf6p" path="res://art/models/frontgate.glb" id="1_gouiy"]
+
+[node name="FrontGate" unique_id=584748861 instance=ExtResource("1_gouiy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1055420843]
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="StaticBody3D" index="0" unique_id=1611111304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.90000004)
+depth = 5.19
+polygon = PackedVector2Array(0.4408803, 0.026463628, 6.6, 0.2, 6.637661, 14.29995, 6.6, 22.5, 4.7000003, 31.7, 2.3, 23.1, 1.9, 14.2, 0.5, 11.7, -16.72342, 11.521291, -16.90945, 19.047878, -21.284534, 18.823187, -20.422953, -0.017685413)

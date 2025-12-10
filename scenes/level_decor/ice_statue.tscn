@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceo5kk8cxbtxt"]
+
+[ext_resource type="PackedScene" uid="uid://c3w8achx55xyd" path="res://art/models/IceStatue.glb" id="1_x6seg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_avneq"]
+size = Vector3(11.649963, 24.853455, 10.716988)
+
+[node name="IceStatue" unique_id=949117843 instance=ExtResource("1_x6seg")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1002756316]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=307429659]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07260132, 12.268463, 0.021404266)
+shape = SubResource("BoxShape3D_avneq")

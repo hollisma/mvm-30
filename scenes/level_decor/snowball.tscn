@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://8dwiqqs1yrye"]
+
+[ext_resource type="PackedScene" uid="uid://hnmdymy44d77" path="res://art/models/snowball.glb" id="1_gi4pc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ly5op"]
+radius = 1.5
+
+[node name="Snowball" unique_id=1409778847 instance=ExtResource("1_gi4pc")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1812051644]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1004716313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("SphereShape3D_ly5op")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://uvwb5ndi2ba3"]
+
+[ext_resource type="PackedScene" uid="uid://dess06rlng1gt" path="res://art/models/rocks.glb" id="1_rk7tu"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_t0dh7"]
+resource_local_to_scene = true
+height = 1.125
+radius = 0.7
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6huoa"]
+height = 1.125
+radius = 0.8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4ciap"]
+height = 1.125
+radius = 0.6
+
+[node name="Rocks" unique_id=82659584 instance=ExtResource("1_rk7tu")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1293739583]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=997352885]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 0.8415064, 0.5124999, 0.50490385)
+shape = SubResource("CylinderShape3D_t0dh7")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=1255949445]
+transform = Transform3D(0.5, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, 0.5, 0.11782046, 1.0249999, -1.0370833)
+shape = SubResource("CylinderShape3D_6huoa")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="2" unique_id=1046071766]
+transform = Transform3D(-0.5, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.5, -0.7251288, 2.0499997, 0.44641063)
+shape = SubResource("CylinderShape3D_4ciap")

@@ -1,4 +1,13 @@
-[gd_scene format=3 uid="uid://d0f5q3kkeg7s7"]
+[gd_scene load_steps=9 format=3 uid="uid://d0f5q3kkeg7s7"]
+
+[ext_resource type="PackedScene" uid="uid://bqytdq0ikc0xs" path="res://scenes/level_decor/front_gate.tscn" id="1_377w7"]
+[ext_resource type="PackedScene" uid="uid://oxm73f28r4xg" path="res://scenes/objects/star_piece.tscn" id="2_bovvr"]
+[ext_resource type="PackedScene" uid="uid://bgg5ppj4vpw7a" path="res://scenes/level_decor/column.tscn" id="3_b2cq8"]
+[ext_resource type="PackedScene" uid="uid://ceo5kk8cxbtxt" path="res://scenes/level_decor/ice_statue.tscn" id="4_xb4v1"]
+[ext_resource type="PackedScene" uid="uid://uvwb5ndi2ba3" path="res://scenes/level_decor/rocks.tscn" id="5_urvlt"]
+[ext_resource type="PackedScene" uid="uid://8dwiqqs1yrye" path="res://scenes/level_decor/snowball.tscn" id="6_d4w6o"]
+[ext_resource type="PackedScene" uid="uid://6sn1bgq1w25q" path="res://scenes/level_decor/stone.tscn" id="7_mbbpy"]
+[ext_resource type="PackedScene" uid="uid://doo3isr3xc0tx" path="res://scenes/level_decor/tree.tscn" id="8_ouxo3"]
 
 [node name="Level" type="CSGCombiner3D" unique_id=1064859936]
 use_collision = true
@@ -50,59 +59,83 @@ size = Vector3(7.9, 1.4, 8.8)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.100003, 2.9000003, 3.5500026)
 size = Vector3(5, 1.4, 6.1)
 
-[node name="Tree" type="CSGCombiner3D" parent="." unique_id=416745670]
+[node name="CustomXmasTree" type="CSGCombiner3D" parent="." unique_id=416745670]
 
-[node name="Box" type="CSGBox3D" parent="Tree" unique_id=2133609861]
+[node name="Box" type="CSGBox3D" parent="CustomXmasTree" unique_id=2133609861]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.950003, 3.55, 3.5000033)
 size = Vector3(3.9, 0.5, 4)
 
-[node name="CSGTorus3D" type="CSGTorus3D" parent="Tree" unique_id=1169144558]
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CustomXmasTree" unique_id=1169144558]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.084227, 8.451313, 3.5505652)
 inner_radius = 0.8
 outer_radius = 1.7940166
 
-[node name="CSGTorus3D2" type="CSGTorus3D" parent="Tree" unique_id=1220928287]
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="CustomXmasTree" unique_id=1220928287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.084227, 5.651313, 3.5505652)
 inner_radius = 0.9953805
 outer_radius = 2.9
 
-[node name="CSGTorus3D3" type="CSGTorus3D" parent="Tree" unique_id=421567155]
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="CustomXmasTree" unique_id=421567155]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.084227, 6.551313, 3.5505652)
 outer_radius = 2.5
 
-[node name="CSGTorus3D4" type="CSGTorus3D" parent="Tree" unique_id=1135525463]
+[node name="CSGTorus3D4" type="CSGTorus3D" parent="CustomXmasTree" unique_id=1135525463]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.084227, 7.651313, 3.5505652)
 inner_radius = 0.8
 outer_radius = 2.1000001
 
-[node name="CSGTorus3D5" type="CSGTorus3D" parent="Tree" unique_id=1388161857]
+[node name="CSGTorus3D5" type="CSGTorus3D" parent="CustomXmasTree" unique_id=1388161857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.084227, 9.151313, 3.5505652)
 inner_radius = 0.6
 outer_radius = 1.6
 
-[node name="CSGTorus3D6" type="CSGTorus3D" parent="Tree" unique_id=1262304325]
+[node name="CSGTorus3D6" type="CSGTorus3D" parent="CustomXmasTree" unique_id=1262304325]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.084227, 9.951313, 3.5505652)
 inner_radius = 0.4
 outer_radius = 1.4
 
-[node name="CSGTorus3D7" type="CSGTorus3D" parent="Tree" unique_id=105503435]
+[node name="CSGTorus3D7" type="CSGTorus3D" parent="CustomXmasTree" unique_id=105503435]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.084227, 10.651313, 3.5505652)
 inner_radius = 0.4
 outer_radius = 1.2
 
-[node name="CSGTorus3D8" type="CSGTorus3D" parent="Tree" unique_id=1623271894]
+[node name="CSGTorus3D8" type="CSGTorus3D" parent="CustomXmasTree" unique_id=1623271894]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.084227, 11.151312, 3.5505652)
 inner_radius = 0.1
 
-[node name="CSGTorus3D9" type="CSGTorus3D" parent="Tree" unique_id=2091630877]
+[node name="CSGTorus3D9" type="CSGTorus3D" parent="CustomXmasTree" unique_id=2091630877]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.084227, 11.651312, 3.5505652)
 inner_radius = 0.001
 outer_radius = 0.7
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="Tree" unique_id=1858676692]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CustomXmasTree" unique_id=1858676692]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.163324, 12.263113, 3.4270618)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Tree" unique_id=1475105258]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CustomXmasTree" unique_id=1475105258]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.06143, 7.4409666, 3.5043225)
 height = 7.8
 sides = 12
+
+[node name="FrontGate" parent="." unique_id=584748861 instance=ExtResource("1_377w7")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -43.3, 0, 11)
+
+[node name="StarPiece" parent="." unique_id=37873149 instance=ExtResource("2_bovvr")]
+transform = Transform3D(0.76604444, 0, -0.6427876, 0, 1, 0, 0.6427876, 0, 0.76604444, -15.199999, 1.2000002, -9.9)
+
+[node name="Column" parent="." unique_id=203512794 instance=ExtResource("3_b2cq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.2, 0, 20.5)
+
+[node name="IceStatue" parent="." unique_id=949117843 instance=ExtResource("4_xb4v1")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -23.2, 0, 13.400001)
+
+[node name="Rocks" parent="." unique_id=82659584 instance=ExtResource("5_urvlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 0.5, 22.5)
+
+[node name="Snowball" parent="." unique_id=1409778847 instance=ExtResource("6_d4w6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.9, 0.40000004, 26.1)
+
+[node name="Stone" parent="." unique_id=1246742131 instance=ExtResource("7_mbbpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6, 0.5, 19.6)
+
+[node name="Tree" parent="." unique_id=764759494 instance=ExtResource("8_ouxo3")]
+transform = Transform3D(-0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660254, -16.1, 0.5, 21.8)

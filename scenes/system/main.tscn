@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://06tul1dr0kp3"]
+[gd_scene load_steps=13 format=3 uid="uid://06tul1dr0kp3"]
 
 [ext_resource type="PackedScene" uid="uid://d0f5q3kkeg7s7" path="res://scenes/levels/level.tscn" id="1_6awnf"]
 [ext_resource type="Script" uid="uid://8ddbwxemodfk" path="res://scenes/system/main.gd" id="1_628vv"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cohxnw8spigs6" path="res://scenes/ui/hud.tscn" id="4_5m258"]
 [ext_resource type="PackedScene" uid="uid://k58smrdgsdn0" path="res://scenes/enemies/sword_enemy.tscn" id="7_t1oto"]
 [ext_resource type="PackedScene" uid="uid://cxlcqev27lq4d" path="res://scenes/enemies/chase_enemy.tscn" id="7_uaibl"]
-[ext_resource type="PackedScene" uid="uid://oxm73f28r4xg" path="res://scenes/objects/star_piece.tscn" id="8_t1oto"]
 [ext_resource type="PackedScene" uid="uid://8ac152xes33n" path="res://scenes/enemies/ranged_enemy.tscn" id="9_bptr8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6awnf"]
@@ -48,23 +47,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.100002, 1, 17.1)
 
 [node name="HUD" parent="." unique_id=113979026 instance=ExtResource("4_5m258")]
 
-[node name="StationaryEnemy" parent="." unique_id=1237845330 instance=ExtResource("3_ii55j")]
+[node name="Enemies" type="Node" parent="." unique_id=1394927636]
+
+[node name="StationaryEnemy" parent="Enemies" unique_id=1237845330 instance=ExtResource("3_ii55j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5, 1.5000004, -10.2)
 
-[node name="StationaryEnemy2" parent="." unique_id=286009393 instance=ExtResource("3_ii55j")]
+[node name="StationaryEnemy2" parent="Enemies" unique_id=286009393 instance=ExtResource("3_ii55j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5, 1.5000004, -8)
 
-[node name="StationaryEnemy3" parent="." unique_id=1224290363 instance=ExtResource("3_ii55j")]
+[node name="StationaryEnemy3" parent="Enemies" unique_id=1224290363 instance=ExtResource("3_ii55j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 1.5000004, -10.2)
 
-[node name="ChaseEnemy" parent="." unique_id=1403435692 instance=ExtResource("7_uaibl")]
+[node name="ChaseEnemy" parent="Enemies" unique_id=1403435692 instance=ExtResource("7_uaibl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2, 1.5, 5.5000005)
 
-[node name="SwordEnemy" parent="." unique_id=1264666021 instance=ExtResource("7_t1oto")]
+[node name="SwordEnemy" parent="Enemies" unique_id=1264666021 instance=ExtResource("7_t1oto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.900002, 1.5000001, 10.9)
 
-[node name="StarPiece" parent="." unique_id=37873149 instance=ExtResource("8_t1oto")]
-transform = Transform3D(0.76604444, 0, -0.6427876, 0, 1, 0, 0.6427876, 0, 0.76604444, -15.199999, 1.2000002, -9.9)
-
-[node name="RangedEnemy" parent="." unique_id=884924017 instance=ExtResource("9_bptr8")]
+[node name="RangedEnemy" parent="Enemies" unique_id=884924017 instance=ExtResource("9_bptr8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.3, 1.5, 9)
